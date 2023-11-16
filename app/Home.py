@@ -1,10 +1,15 @@
 import streamlit as st
 from PIL import Image
+import os
 
 # Streamlit
 st.set_page_config(page_title='Crop Management', layout='wide')
 
 st.title("Crop Management")
+
+cwd = os.getcwd()
+test = os.listdir()
+st.title(test)
 
 # Description
 st.write("""
