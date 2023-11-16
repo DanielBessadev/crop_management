@@ -10,7 +10,7 @@ with c1:
     name = st.selectbox('Planta', names)
     selected_species = species.loc[species.name == name]
 with c2:
-    st.write("(", selected_species.to_string(['species'], index=False), ")")
+    st.write("(", selected_species['species'].to_string(index=False), ")")
 with c3:
     st.write("Image")
     # Image columns #st.image
