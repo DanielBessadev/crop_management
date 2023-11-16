@@ -1,14 +1,9 @@
 import streamlit as st
-import os
 
 from functions.functions import species, specimens, names
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
-
-cwd = os.getcwd()
-test = os.listdir()
-st.title(test)
 
 c1, c2, c3 = st.columns(3)
 with c1:

@@ -9,7 +9,8 @@ st.title("Crop Management")
 
 cwd = os.getcwd()
 test = os.listdir()
-st.title(test)
+files_path = [os.path.abspath(x) for x in os.listdir()]
+st.title(files_path)
 
 # Description
 st.write("""
