@@ -15,14 +15,14 @@ with c3:
     st.write("Image")
     # Image columns #st.image
 
-c1, c2, c3 = st.columns((3,1,1))
+c1, c2, c3 = st.columns((1,1,3))
 with c1:
-    st.write(selected_species['popular_names'].to_string(index=False, header=False))
-with c2:
     selected_specimens = specimens.loc[specimens.id_species == int(selected_species.index.values)]
     gps = st.selectbox('Localização', selected_specimens['gps_x'].sort_values().to_list())
     selected_specimen = selected_specimens.loc[selected_specimens.gps_x == gps]
-with c3:
+with c2:
     # Age calculation
     age = selected_specimen['date_plantation'].values
     st.write("Idade:", age)
+with c3:
+    st.write(selected_species['popular_names'].to_string(index=False, header=False))
