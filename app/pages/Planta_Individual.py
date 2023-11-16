@@ -5,7 +5,7 @@ from functions.functions import species, specimens, names
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns((1,1,3))
 with c1:
     name = st.selectbox('Planta', names)
     selected_species = species.loc[species.name == name]
@@ -15,7 +15,7 @@ with c3:
     st.write("Image")
     # Image columns #st.image
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns((3,1,1))
 with c1:
     st.write(selected_species['popular_names'].to_string(index=False, header=False))
 with c2:
