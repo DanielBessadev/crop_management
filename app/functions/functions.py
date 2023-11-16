@@ -1,5 +1,7 @@
 import pandas as pd
 
+pd.set_option('display.max_colwidth', 100)
+
 # Dataframes
 species = pd.read_excel('database/roca_andiroba.xlsx', sheet_name='Species', index_col='id_species')
 names = species['name'].sort_values().to_list()
