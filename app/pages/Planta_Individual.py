@@ -13,7 +13,7 @@ with c2:
     st.write("(", selected_species['spieces'].values,")")
 with c3:
     st.write("Image")
-    # Image columns#st.image
+    # Image columns #st.image
 
 c1, c2, c3 = st.columns(3)
 with c1:
