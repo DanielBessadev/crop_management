@@ -27,4 +27,4 @@ with c3:
     age = selected_specimen['date_plantation'].values
     st.write("Idade:", age)
 
-st.write(selected_species['popular_names'].to_string(index=False, header=False))
+selected_species['popular_names'].to_string(index=False, header=False)
