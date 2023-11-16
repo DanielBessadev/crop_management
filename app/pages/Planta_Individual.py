@@ -17,7 +17,7 @@ with c3:
 
 c1, c2, c3 = st.columns((3,1,1))
 with c1:
-    st.write(selected_species['popular_names'].to_string(index=False, header=False))
+    st.write(selected_species['popular_names'])
 with c2:
     selected_specimens = specimens.loc[specimens.id_species == int(selected_species.index.values)]
     gps = st.selectbox('Localização', selected_specimens['gps_x'].sort_values().to_list())
@@ -26,5 +26,3 @@ with c3:
     # Age calculation
     age = selected_specimen['date_plantation'].values
     st.write("Idade:", age)
-
-st.caption(selected_species['popular_names'].to_string(index=False, header=False))
