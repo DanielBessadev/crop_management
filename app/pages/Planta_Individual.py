@@ -24,6 +24,6 @@ with c2:
     selected_specimen = selected_specimens.loc[selected_specimens.gps_x == gps]
 with c3:
     # Age calculation
-    age = selected_specimen['date_plantation'].to_string(index=False, header=False)
+    age = selected_specimen['date_plantation'].values
     st.write("Idade:", age)
 
