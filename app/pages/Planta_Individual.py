@@ -7,30 +7,24 @@ from functions.functions import species, specimens, names
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
-c1, c2, c3 = st.columns((1,1,6))
+c1, c2, c3, c4, c5 = st.columns(5)
 with c1:
     name = st.selectbox('Planta', names)
     selected_species = species.loc[species.name == name]
 with c2:
-    st.subheader(selected_species['species'].to_string(index=False, header=False))
-with c3:
-    st.write("Image")
-    # Image columns #st.image
-
-c1, c2, c3 = st.columns((1,1,6))
-with c1:
     selected_specimens = specimens.loc[specimens.id_species == int(selected_species.index.values)]
     id_specimen = st.selectbox('Código', selected_specimens.index.sort_values().to_list())
     selected_specimen = selected_specimens.loc[selected_specimens.index == id_specimen]
-with c2:
-    # Age calculation
+with c3:
+    st.subheader(selected_species['species'].to_string(index=False, header=False))
+with c4:
     date_plantation = datetime.strptime(selected_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
     age = int((date.today() - (date_plantation)).days/365.2425)
     if age == 0:
         st.write('Menos de 1 ano')
     else:
         st.write(str(age), "anos")
-with c3:
+with c5:
     st.write(selected_species['popular_names'].to_string(index=False, header=False))
 
 c1, c2 = st.columns((4,6))
