@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import datetime, date
+import pandas as pd
 
 from functions.functions import species, specimens, names
 
@@ -31,5 +32,21 @@ with c3:
 
 c1, c2 = st.columns((4,6))
 with c1:
-    subtab_handling, subtab_ = st.tabs(['Manuseio Anual', 'Total de Trades', 'Trades Ganhadores', 'Trades Perdedores', 'Drawdown'])
-    with subtab_basic:
+    subtab_handling, subtab_record = st.tabs(['Manuseio Anual', 'Histórico de Manuseios'])
+    with subtab_handling:
+        basic = pd.DataFrame(data=[[f"{species['flowering_month'][0]}"],
+                                    [f"{species['fruiting_month'][0]}"],
+                                    [f"{species['flowering_NPK'][0]}"],
+                                    [f"{species['fruiting_NPK'][0]}"],
+                                    [f"{species['flowering_compost'][0]}"],
+                                    [f"{species['fruiting_compost'][0]}"],
+                                    [f"{species['flowering_calcarium'][0]}"],
+                                    [f"{species['fruiting_calcarium'][0]}"],
+                                    [f"{species['pruning_season'][0]}"],
+                                    [f"{species['harvest_season'][0]}"]],
+                            index=[['Mês de floração','Mês de frutificação', 'NPK de floração', 'NPK de frutificação', 'Adubo de floração', 'Adubo de frutificação', 'Calcário de floração', 'Calcário de frutificação', 'Mês de poda', 'Mês de colheita']], 
+                            columns=[str(selected_species)])
+        st.table(basic)
+
+with c2:
+    st.write("Image")
