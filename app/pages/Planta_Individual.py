@@ -50,4 +50,4 @@ with c2:
 
 df = pd.DataFrame(data=[[float(selected_specimen.gps_x.to_string(index=False, header=False)), float(selected_specimen.gps_y.to_string(index=False, header=False))]],
     columns=['lat', 'lon'])
-st.map(df, zoom=18)
+st.map(df, size=10, zoom=18)
