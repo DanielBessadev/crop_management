@@ -34,18 +34,18 @@ c1, c2 = st.columns((4,6))
 with c1:
     subtab_handling, subtab_record = st.tabs(['Manuseio Anual', 'Histórico de Manuseios'])
     with subtab_handling:
-        basic = pd.DataFrame(data=[[f"{selected_species['flowering_month'][0]}"],
-                                    [f"{selected_species['fruiting_month'][0]}"],
-                                    [f"{selected_species['flowering_NPK'][0]}"],
-                                    [f"{selected_species['fruiting_NPK'][0]}"],
-                                    [f"{selected_species['flowering_compost'][0]}"],
-                                    [f"{selected_species['fruiting_compost'][0]}"],
-                                    [f"{selected_species['flowering_calcarium'][0]}"],
-                                    [f"{selected_species['fruiting_calcarium'][0]}"],
-                                    [f"{selected_species['pruning_season'][0]}"],
-                                    [f"{selected_species['harvest_season'][0]}"]],
+        basic = pd.DataFrame(data=[[f"{selected_species['flowering_month'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['fruiting_month'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['flowering_NPK'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['fruiting_NPK'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['flowering_compost'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['fruiting_compost'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['flowering_calcarium'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['fruiting_calcarium'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['pruning_season'].to_string(index=False, header=False)}"],
+                                    [f"{selected_species['harvest_season'].to_string(index=False, header=False)}"]],
                             index=[['Mês de floração','Mês de frutificação', 'NPK de floração', 'NPK de frutificação', 'Adubo de floração', 'Adubo de frutificação', 'Calcário de floração', 'Calcário de frutificação', 'Mês de poda', 'Mês de colheita']], 
-                            columns=[str(selected_species)])
+                            columns=['Manuseio'])
         st.table(basic)
 
 with c2:
