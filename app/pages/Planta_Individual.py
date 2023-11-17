@@ -26,7 +26,10 @@ with c2:
     # Age calculation
     date_plantation = datetime.strptime(selected_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
     age = int((date.today() - (date_plantation)).days/365.2425)
-    st.write(str(age), "anos")
+    if age < 0:
+        st.write('Menos de 1 ano')
+    else:
+        st.write(str(age), "anos")
 with c3:
     st.write(selected_species['popular_names'].to_string(index=False, header=False))
 
