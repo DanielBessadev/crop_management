@@ -7,7 +7,7 @@ from functions.functions import species, specimens, names
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
-c1, c2, c3, c4, c5 = st.columns((2,2,2,1,4))
+c1, c2, c3, c4, c5 = st.columns((2,2,2,1,5))
 with c1:
     name = st.selectbox('Planta', names)
     selected_species = species.loc[species.name == name]
@@ -29,7 +29,7 @@ with c5:
 
 c1, c2 = st.columns((4,6))
 with c1:
-    subtab_handling, subtab_record = st.tabs(['Manuseio Anual', 'Histórico de Manuseios'])
+    subtab_handling, subtab_record = st.tabs(['Manuseio Padrão', 'Histórico de Manuseios'])
     with subtab_handling:
         basic = pd.DataFrame(data=[[f"{selected_species['flowering_month'].to_string(index=False, header=False)}"],
                                     [f"{selected_species['fruiting_month'].to_string(index=False, header=False)}"],
