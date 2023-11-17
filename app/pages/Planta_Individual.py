@@ -20,7 +20,7 @@ c1, c2, c3 = st.columns((1,1,6))
 with c1:
     selected_specimens = specimens.loc[specimens.id_species == int(selected_species.index.values)]
     id_specimen = st.selectbox('Código', selected_specimens['id_specimen'].sort_values().to_list())
-    selected_specimen = selected_specimens.loc[selected_specimens.id_specimen == id_specimen]
+    selected_specimen = selected_specimens.loc[selected_specimens.index == id_specimen]
 with c2:
     # Age calculation
     date_plantation = datetime.strptime(selected_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
