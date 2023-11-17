@@ -46,8 +46,11 @@ with c1:
         st.table(basic)
 
 with c2:
-    st.write("Image")
+    df = pd.DataFrame(data=[[float(selected_specimen.gps_x.to_string(index=False, header=False)), float(selected_specimen.gps_y.to_string(index=False, header=False))]], columns=['lat', 'lon'])
+    st.map(df, size=5, zoom=18)
 
-df = pd.DataFrame(data=[[float(selected_specimen.gps_x.to_string(index=False, header=False)), float(selected_specimen.gps_y.to_string(index=False, header=False))]],
-    columns=['lat', 'lon'])
-st.map(df, size=5, zoom=18)
+c1, c2 = st.columns((4,6))
+with c1:
+    st.write('Phylogenetic Graph')
+with c2:
+    st.write('Image')
