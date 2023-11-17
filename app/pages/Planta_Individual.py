@@ -7,7 +7,7 @@ from functions.functions import species, specimens, names
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
-c1, c2, c3, c4, c5 = st.columns((2,2,2,1,5))
+c1, c2, c3, c4, c5 = st.columns((2,1,2,1,5))
 with c1:
     name = st.selectbox('Planta', names)
     selected_species = species.loc[species.name == name]
