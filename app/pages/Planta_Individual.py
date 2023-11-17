@@ -24,7 +24,12 @@ with c1:
 with c2:
     # Age calculation
     date_plantation = datetime.strptime(selected_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
-    age = str((date.today() - (date_plantation)).days/365.2425)
-    st.write(age, "anos")
+    age = int((date.today() - (date_plantation)).days/365.2425)
+    st.write(str(age), "anos")
 with c3:
     st.write(selected_species['popular_names'].to_string(index=False, header=False))
+
+c1, c2 = st.columns((4,6))
+with c1:
+    subtab_handling, subtab_ = st.tabs(['Manuseio Anual', 'Total de Trades', 'Trades Ganhadores', 'Trades Perdedores', 'Drawdown'])
+    with subtab_basic:
