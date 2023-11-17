@@ -48,7 +48,7 @@ with c1:
 with c2:
     st.write("Image")
 
-df = pd.DataFrame(data=[[int(selected_specimen.gps_x.to_string(index=False, header=False)), int(selected_specimen.gps_y.to_string(index=False, header=False))]],
+df = pd.DataFrame(data=[[selected_specimen.gps_x.to_string(index=False, header=False), selected_specimen.gps_y.to_string(index=False, header=False)]],
     columns=['lat', 'lon'])
 
 st.map(df)
