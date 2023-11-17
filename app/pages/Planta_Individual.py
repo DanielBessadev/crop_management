@@ -23,7 +23,7 @@ with c1:
     selected_specimen = selected_specimens.loc[selected_specimens.id_specimen == id_specimen]
 with c2:
     # Age calculation
-    date_plantation = datetime.strptime(jabuticaba_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
+    date_plantation = datetime.strptime(selected_specimen.date_plantation.to_string(index=False, header=False), '%Y-%m-%d').date()
     age = int((date.today() - (date_plantation)).days/365.2425)
     st.write("Idade:", age)
 with c3:
